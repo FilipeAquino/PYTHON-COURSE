@@ -9,12 +9,22 @@
 
 from dataclasses import dataclass  # é um sugar syntax
 
+# se atribuirmos init=false temos que fazer nosso init
 
-@dataclass
+
+@dataclass(init=False)
 # dessa forma o init ja foi executado e os atributos já foram feitos
 class Pessoa:
     nome: str
     idade: int
+
+    # Sem init n tem post_init
+    def __post_init__(self):  # executado dps do init
+        ...
+
+    @property
+    def nome_completo(self):
+        return f"{self.nome} tem {self.idade} anos"
 
 
 p1 = Pessoa("filipe", 20)
