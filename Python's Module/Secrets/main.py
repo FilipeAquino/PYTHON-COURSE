@@ -1,0 +1,55 @@
+# podemos usar o modulo para criar coisas mais seguras
+# podemos usar do proprio os tbm
+
+import secrets
+import string as alfabeto
+# toda a aleatoriadade vai ser gerado pelo sistema operacional e poed usar
+# como se fosse o modulo random normal
+random = secrets.SystemRandom()
+
+# gera numero abaixo
+print(secrets.randbelow(100))
+
+# random.randrange(início, fim, passo)
+#   -> Gera um número inteiro aleatório dentro de um intervalo específico
+r_range = random.randrange(10, 20, 2)
+print(r_range)
+
+# random.randint(início, fim)
+#   -> Gera um número inteiro aleatório dentro de um intervalo "sem passo"
+r_int = random.randint(10, 20)
+print(r_int)
+
+# random.uniform(início, fim)
+#   -> Gera um número flutuante aleatório dentro de um intervalo "sem passo"
+r_uniform = random.uniform(10, 20)
+print(r_uniform)
+
+# random.shuffle(SequenciaMutável) -> Embaralha a lista original
+nomes = ['Luiz', 'Maria', 'Helena', 'Joana']
+random.shuffle(nomes)
+print(nomes)
+
+# random.sample(Iterável, k=N)
+#   -> Escolhe elementos do iterável e retorna outro iterável (não repete)
+novos_nomes = random.sample(nomes, k=3)
+print(nomes)
+print(novos_nomes)
+
+# random.choices(Iterável, k=N)
+#   -> Escolhe elementos do iterável e retorna outro iterável (repete valores)
+novos_nomes = random.choices(nomes, k=3)
+print(nomes)
+print(novos_nomes)
+
+# random.choice(Iterável) -> Escolhe um elemento do iterável
+print(random.choice(nomes))
+
+# vamos criar uma senha:
+
+letras = alfabeto.ascii_letters  # todas as letras M e m
+num = alfabeto.digits  # todos os numeros
+pontuacao = alfabeto.punctuation  # pontuações
+
+password = "".join(random.choices(letras + num, k=12))
+print(password)
