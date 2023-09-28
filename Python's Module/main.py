@@ -1,5 +1,5 @@
 # Vamos usar uma tática em python para testar codigos sem atrapalhar os modulos
-
+# usar pip freeze > requirements.txt 
 def main() -> None:
     ...
 
